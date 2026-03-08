@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bakery Otiiman</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #fffaf5;
+}
+
+/* ===== HEADER ===== */
+header {
+    background: linear-gradient(135deg,#ff7e5f,#feb47b);
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+header h1 {
+    font-size: 45px;
+    margin: 0;
+}
+
+header p {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.promo {
+    font-size: 22px;
+    font-weight: bold;
+    background: white;
+    color: #e74c3c;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 30px;
+    margin-top: 15px;
+}
+
+/* ===== PRODUK ===== */
+.produk-section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.produk-section h2 {
+    font-size: 32px;
+    color: #d35400;
+}
+
+
+/* ===== ULASAN ===== */
+.review-section {
+    padding: 50px 20px;
+    background: #fff3e6;
+    text-align: center;
+}
+
+.review-section h2 {
+    font-size: 32px;
+    color: #d35400;
+}
+
+.review-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.review-card {
+    background: white;
+    width: 280px;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.review-card:hover {
+    transform: translateY(-10px);
+}
+
+.review-card img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.review-card h4 {
+    margin: 10px 0 5px;
+}
+
+.stars {
+    color: gold;
+    font-size: 20px;
+}
+
+/* ===== KONTAK ===== */
+.kontak {
+    background: #ff7e5f;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.kontak h2 {
+    font-size: 30px;
+}
+
+.kontak p {
+    font-size: 18px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+/* ===== STYLE PRODUK MARKETPLACE ===== */
+
+.produk-section {
+    padding: 40px 20px;
+}
+
+.produk-section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Grid produk */
+.produk-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 20px;
+}
+
+/* Card produk */
+.card {
+    background: white;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    position: relative;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+}
+
+/* Gambar produk */
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Judul */
+.card h3 {
+    font-size: 16px;
+    margin: 10px 0 5px;
+}
+
+/* Harga */
+.price {
+    color: #e74c3c;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Qty + tombol */
+.card input {
+    width: 60px;
+    padding: 5px;
+    margin-bottom: 8px;
+}
+
+.card button {
+    background: #ff5722;
+    color: white;
+    border: none;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card button:hover {
+    background: #e64a19;
+}
+
+/* Badge */
+.badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: green;
+    color: white;
+    padding: 5px 8px;
+    font-size: 12px;
+    border-radius: 8px;
+}
+
+/* Discount */
+.discount {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: red;
+    color: white;
+    padding: 5px 8px;
+    font-size: 12px;
+    border-radius: 8px;
+}
+/* ===== ICON KERANJANG ===== */
+
+.cart-icon{
+position:fixed;
+top:20px;
+right:20px;
+background:white;
+padding:10px 15px;
+border-radius:50px;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+cursor:pointer;
+font-size:22px;
+z-index:1000;
+}
+
+.cart-count{
+background:red;
+color:white;
+border-radius:50%;
+padding:2px 6px;
+font-size:12px;
+margin-left:5px;
+}
+
+/* ===== TROLI ===== */
+
+.cart-box{
+position:fixed;
+top:90px;
+right:20px;
+width:300px;
+background:white;
+border-radius:15px;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+padding:15px;
+z-index:999;
+max-height:500px;
+overflow:auto;
+}
+
+.cart-box h3{
+margin-top:0;
+color:#ff5722;
+text-align:center;
+}
+
+.cart-item{
+border-bottom:1px solid #eee;
+padding:6px 0;
+font-size:14px;
+display:flex;
+justify-content:space-between;
+}
+
+.cart-total{
+font-weight:bold;
+color:#e74c3c;
+margin-top:10px;
+}
+
+.cart-box input,
+.cart-box textarea{
+width:100%;
+padding:6px;
+margin-bottom:6px;
+border-radius:6px;
+border:1px solid #ddd;
+}
+
+.checkout-btn{
+width:100%;
+padding:10px;
+background:#25D366;
+border:none;
+color:white;
+border-radius:10px;
+cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+    <!-- ICON KERANJANG -->
+<div class="cart-icon">
+🛒 <span id="cartCount" class="cart-count">0</span>
+</div>
+
+<!-- TROLI -->
+<div class="cart-box">
+
+<h3>Troli Pesanan</h3>
+
+<input type="text" id="namaPemesan" placeholder="Nama Pemesan">
+
+<input type="text" id="noHP" placeholder="No HP">
+
+<textarea id="alamat" placeholder="Alamat"></textarea>
+
+<!-- METODE PEMBAYARAN -->
+<label>Metode Pembayaran</label>
+<select id="metodeBayar">
+<option value="">-- Pilih Pembayaran --</option>
+<option value="COD (Bayar di Tempat)">COD (Bayar di Tempat)</option>
+<option value="Transfer Bank">Transfer Bank</option>
+<option value="DANA">DANA</option>
+</select>
+
+<div id="cartItems"></div>
+
+<p class="cart-total">Total: Rp <span id="totalHarga">0</span></p>
+
+<button class="checkout-btn" onclick="checkoutWA()">Checkout WhatsApp</button>
+
+</div>
+<style>
+
+.header-bakery{
+display:flex;
+align-items:center;
+gap:30px;
+padding:35px;
+background:linear-gradient(135deg,#ff9966,#ff5e62);
+color:white;
+border-bottom-left-radius:30px;
+border-bottom-right-radius:30px;
+box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* LOGO */
+
+.logo{
+width:120px;
+height:120px;
+object-fit:cover;
+border-radius:50%;
+border:4px solid white;
+box-shadow:0 6px 15px rgba(0,0,0,0.3);
+}
+
+/* TEXT */
+
+.header-text h1{
+margin:0;
+font-size:40px;
+letter-spacing:1px;
+}
+
+.tagline{
+font-size:20px;
+margin-top:5px;
+font-style:italic;
+opacity:0.95;
+}
+
+.deskripsi{
+margin:6px 0;
+line-height:1.6;
+}
+
+/* PROMO */
+
+.promo{
+background:white;
+color:#d84315;
+padding:12px 18px;
+margin-top:12px;
+border-radius:10px;
+font-weight:bold;
+display:inline-block;
+font-size:16px;
+box-shadow:0 5px 10px rgba(0,0,0,0.2);
+transition:0.3s;
+}
+
+.promo:hover{
+transform:scale(1.05);
+}
+
+/* PESAN */
+
+.pesan{
+margin-top:12px;
+font-weight:bold;
+font-size:16px;
+}
+
+/* JAM */
+
+.jam{
+margin-top:6px;
+font-size:14px;
+opacity:0.9;
+}
+
+</style>
+
+
+<header class="header-bakery">
+
+<img src="logo.jpg" alt="Logo Otiiman Bakery" class="logo">
+
+<div class="header-text">
+
+<h1>Otiiman Bakery</h1>
+
+<p class="tagline">
+Fresh From The Oven 🍞
+</p>
+
+<p class="deskripsi">
+Nikmati roti dan kue lezat yang dibuat setiap hari dengan bahan berkualitas.
+Lembut, manis, dan cocok untuk semua momen spesial Anda.
+</p>
+
+<p class="deskripsi">
+Cocok untuk sarapan, ulang tahun, arisan, acara keluarga, atau sekadar camilan manis.
+</p>
+
+<div class="promo">
+🎉 PROMO SPESIAL 🎉 <br>
+Beli 2 Diskon 10%
+</div>
+
+<p class="pesan">
+Pesan sekarang dan rasakan kelezatan kue terbaik dari Bakery Otiiman ❤️
+</p>
+
+<p class="jam">
+🕒 Buka Setiap Hari 08.00 - 22.00
+</p>
+
+</div>
+
+</header>
+
+
+<section class="produk-section">
+    
+<div class="card">
+<div class="badge">BEST SELLER</div>
+<div class="discount">DISKON 10%</div>
+<img src="Amanda Bronies Srikaya.jpg">
+<h3>Amanda Brownies Srikaya</h3>
+<p class="price">Rp 45.000</p>
+<input type="number" id="qty1" value="1" min="1">
+<button onclick="addToCart(event,'Amanda Brownies Srikaya',45000,'qty1')">Tambah</button>
+</div>
+
+<div class="card">
+<img src="amanda-brownies.png">
+<h3>Brownies Coklat</h3>
+<p class="price">Rp 40.000</p>
+<input type="number" id="qty2" value="1" min="1">
+<button onclick="addToCart(event,'Brownies Coklat',40000,'qty2')">Tambah</button>
+</div>
+
+<div class="card">
+<img src="bolu.jpg">
+<h3>Bolu Lembut</h3>
+<p class="price">Rp 35.000</p>
+<input type="number" id="qty3" value="1" min="1">
+<button onclick="addToCart(event,'Bolu Lembut',35000,'qty3')">Tambah</button>
+</div>
+
+<div class="card">
+<img src="kue ultah coklat.jpg">
+<h3>Kue Ultah Coklat</h3>
+<p class="price">Rp 50.000</p>
+<input type="number" id="qty4" value="1" min="1">
+<button onclick="addToCart(event,'Kue Ultah Coklat',50000,'qty4')">Tambah</button>
+</div>
+
+<div class="card">
+<div class="discount">DISKON 10%</div>
+<img src="amanda stroberi.jpg">
+<h3>Amanda Stroberi</h3>
+<p class="price">Rp 55.000</p>
+<input type="number" id="qty5" value="1" min="1">
+<button onclick="addToCart(event,'Amanda Stroberi',55000,'qty5')">Tambah</button>
+</div>
+
+<!-- PRODUK TAMBAHAN (TIDAK MENGHAPUS YANG LAMA) -->
+
+<div class="card">
+<img src="bolu gulung kukus.jpg">
+<h3>Bolu Gulung Kukus</h3>
+<p class="price">Rp 30.000</p>
+<input type="number" id="qty6" value="1" min="1">
+<button onclick="addToCart(event,'Bolu Gulung Kukus',30000,'qty6')">Tambah</button>
+</div>
+
+<div class="card">
+<img src="bolu gulung telur.jpg">
+<h3>Bolu Gulung Telur</h3>
+<p class="price">Rp 32.000</p>
+<input type="number" id="qty7" value="1" min="1">
+<button onclick="addToCart(event,'Bolu Gulung Telur',32000,'qty7')">Tambah</button>
+</div>
+
+<div class="card">
+<img src="roti kering mawar.jpg">
+<h3>Roti Kering Mawar</h3>
+<p class="price">Rp 25.000</p>
+<input type="number" id="qty8" value="1" min="1">
+<button onclick="addToCart(event,'Roti Kering Mawar',25000,'qty8')">Tambah</button>
+</div>
+
+<div class="card">
+<img src="bolu coklat.jpg">
+<h3>Bolu Coklat</h3>
+<p class="price">Rp 28.000</p>
+<input type="number" id="qty9" value="1" min="1">
+<button onclick="addToCart(event,'Bolu Coklat',28000,'qty9')">Tambah</button>
+</div>
+    
+</section>
+
+<section class="review-section">
+    <h2>Ulasan Pelanggan ⭐⭐⭐⭐⭐</h2>
+
+    <div class="review-container">
+
+        <div class="review-card">
+            <img src="https://i.pravatar.cc/100?img=1">
+            <h4>Andi Saputra</h4>
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p>Rotinya lembut banget dan fresh! Pasti pesan lagi di Bakery Otiiman.</p>
+        </div>
+
+        <div class="review-card">
+            <img src="https://i.pravatar.cc/100?img=2">
+            <h4>Rina Lestari</h4>
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p>Kuenya cantik dan rasanya enak sekali. Anak-anak suka banget!</p>
+        </div>
+
+        <div class="review-card">
+            <img src="https://i.pravatar.cc/100?img=3">
+            <h4>Siti Rahma</h4>
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p>Pelayanan cepat dan ramah. Harga juga terjangkau ❤️</p>
+        </div>
+
+        <div class="review-card">
+            <img src="https://i.pravatar.cc/100?img=4">
+            <h4>Dewi Anggraini</h4>
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p>Brownies dan donatnya juara! Teksturnya lembut dan manisnya pas.</p>
+        </div>
+
+        <div class="review-card">
+            <img src="https://i.pravatar.cc/100?img=5">
+            <h4>Fajar Pratama</h4>
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p>Sangat recommended! Cocok untuk acara ulang tahun dan arisan.</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="kontak">
+    <h2>Hubungi Kami</h2>
+    <p>📞 082283583665</p>
+    <p>📍 Jl. Jamin Ginting, Padang Bulan, Citra Kos 1</p>
+    <p>🕒 Buka 08.00 - 22.00</p>
+
+    <iframe 
+        src="https://maps.google.com/maps?q=Jl%20Jamin%20Ginting%20Padang%20Bulan%20Medan&t=&z=15&ie=UTF8&iwloc=&output=embed"
+        width="100%" 
+        height="250" 
+        style="border:0; margin-top:20px;" 
+        loading="lazy">
+    </iframe>
+</section>
+
+<footer>
+    © 2026 Bakery Otiiman | Dibuat dengan ❤️
+</footer>
+<script>
+
+let cart = []
+let total = 0
+let diskon = 0
+
+function addToCart(event,nama,harga,qtyId){
+
+let qty = parseInt(document.getElementById(qtyId).value)
+
+cart.push({
+nama: nama,
+harga: harga,
+qty: qty
+})
+
+total += harga * qty
+
+updateCart()
+
+}
+
+function updateCart(){
+
+document.getElementById("cartCount").innerText = cart.length
+
+let html = ""
+let jumlahBarang = 0
+
+cart.forEach((item,index)=>{
+
+let subtotal = item.harga * item.qty
+jumlahBarang += item.qty
+
+html += `
+<div class="cart-item">
+<div>
+<b>${item.nama}</b><br>
+${item.qty} x Rp ${item.harga.toLocaleString()}
+</div>
+
+<div>
+Rp ${subtotal.toLocaleString()}
+<button onclick="removeItem(${index})">❌</button>
+</div>
+</div>
+`
+
+})
+
+// hitung diskon
+let totalAkhir = total
+diskon = 0
+
+if(jumlahBarang >= 2){
+diskon = total * 0.10
+totalAkhir = total - diskon
+}
+
+document.getElementById("cartItems").innerHTML = html
+document.getElementById("totalHarga").innerText = totalAkhir.toLocaleString()
+
+}
+
+function removeItem(index){
+
+total -= cart[index].harga * cart[index].qty
+cart.splice(index,1)
+
+updateCart()
+
+}
+
+function checkoutWA(){
+
+let nama = document.getElementById("namaPemesan").value
+let hp = document.getElementById("noHP").value
+let alamat = document.getElementById("alamat").value
+let metode = document.getElementById("metodeBayar").value
+
+if(nama=="" || hp=="" || alamat=="" || metode==""){
+alert("Isi data pemesan dan metode pembayaran dulu")
+return
+}
+
+let pesan = "Halo Bakery Otiiman\n\nSaya ingin memesan:\n"
+
+let jumlahBarang = 0
+
+cart.forEach(item=>{
+pesan += item.nama + " (" + item.qty + ")\n"
+jumlahBarang += item.qty
+})
+
+let totalAkhir = total
+diskon = 0
+
+if(jumlahBarang >= 2){
+diskon = total * 0.10
+totalAkhir = total - diskon
+}
+
+pesan += "\nSubtotal: Rp " + total.toLocaleString()
+pesan += "\nDiskon (10%): Rp " + diskon.toLocaleString()
+pesan += "\nTotal Bayar: Rp " + totalAkhir.toLocaleString()
+
+pesan += "\n\nNama: " + nama
+pesan += "\nNo HP: " + hp
+pesan += "\nAlamat: " + alamat
+pesan += "\nMetode Pembayaran: " + metode
+
+window.open("https://wa.me/6282283583665?text=" + encodeURIComponent(pesan))
+
+}
+
+</script>
